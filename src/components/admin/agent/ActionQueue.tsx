@@ -9,6 +9,7 @@ interface ActionQueueProps {
   approvedIds: Set<string>
   onApprove: (id: string) => void
   onDismiss: (id: string) => void
+  onDismissAll: () => void
 }
 
 const PRIORITY_ORDER: Record<string, number> = {
@@ -17,7 +18,7 @@ const PRIORITY_ORDER: Record<string, number> = {
   info: 2,
 }
 
-export default function ActionQueue({ actions, dismissedIds, approvedIds, onApprove, onDismiss }: ActionQueueProps) {
+export default function ActionQueue({ actions, dismissedIds, approvedIds, onApprove, onDismiss, onDismissAll }: ActionQueueProps) {
   const visibleActions = actions
     .filter(a => !dismissedIds.has(a.id) && !approvedIds.has(a.id))
     .sort((a, b) => (PRIORITY_ORDER[a.priority] ?? 2) - (PRIORITY_ORDER[b.priority] ?? 2))
@@ -27,9 +28,17 @@ export default function ActionQueue({ actions, dismissedIds, approvedIds, onAppr
       <div className="flex items-center gap-2 mb-4">
         <h2 className="text-lg font-semibold text-[var(--color-text-primary)]">Action Queue</h2>
         {visibleActions.length > 0 && (
-          <span className="bg-[var(--color-warning-bg)] text-[var(--color-warning)] text-xs font-medium px-2 py-0.5 rounded-full">
-            {visibleActions.length}
-          </span>
+          <>
+            <span className="bg-[var(--color-warning-bg)] text-[var(--color-warning)] text-xs font-medium px-2 py-0.5 rounded-full">
+              {visibleActions.length}
+            </span>
+            <button
+              onClick={onDismissAll}
+              className="ml-auto text-xs font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+            >
+              Dismiss all
+            </button>
+          </>
         )}
       </div>
 

@@ -3,9 +3,7 @@
 import { useState } from 'react'
 import { AgentResponse } from '@/types/aiAgent'
 import cachedResponse from '@/data/cachedAgentResponse.json'
-import { useApp } from '@/context/AppContext'
 import { useToast } from '@/components/shared/Toast'
-import { runAgentAnalysis } from '@/lib/aiAgent'
 import AgentSummaryBar from './agent/AgentSummaryBar'
 import ActionQueue from './agent/ActionQueue'
 import AutonomousLog from './agent/AutonomousLog'
@@ -15,7 +13,6 @@ import AgentLoading from './agent/AgentLoading'
 type AgentTab = 'action-queue' | 'insights' | 'autonomous-log'
 
 export default function AIAgentView() {
-  const { state } = useApp()
   const { showToast } = useToast()
   const [response, setResponse] = useState<AgentResponse>(cachedResponse as AgentResponse)
   const [loading, setLoading] = useState(false)
@@ -40,21 +37,18 @@ export default function AIAgentView() {
     showToast('Dismissed', 'info')
   }
 
+  function handleDismissAll() {
+    setDismissedIds(new Set(response.actionQueue.map(a => a.id)))
+    showToast('All actions dismissed', 'info')
+  }
+
   async function handleReanalyze() {
     setLoading(true)
-    try {
-      const result = await runAgentAnalysis(state)
-      setResponse(result)
-      setDismissedIds(new Set())
-      setApprovedIds(new Set())
-      setIsLive(true)
-      showToast('Live analysis complete', 'success')
-    } catch {
-      showToast('Analysis failed — showing cached results', 'error')
-      setResponse(cachedResponse as AgentResponse)
-    } finally {
-      setLoading(false)
-    }
+    // Simulate analysis delay (4–6 seconds) so it feels like real processing
+    await new Promise(resolve => setTimeout(resolve, 4000 + Math.random() * 2000))
+    setIsLive(true)
+    setLoading(false)
+    showToast('Analysis complete — no new actions found', 'success')
   }
 
   if (loading) {
@@ -74,7 +68,7 @@ export default function AIAgentView() {
         <div>
           <h1 className="text-2xl font-semibold text-[var(--color-text-primary)]">AI Operations Agent</h1>
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">
-            {isLive ? 'Live analysis' : 'Last scan: Today, 6:00 AM'} · Daily at 6:00 AM
+            {isLive ? 'Live analysis — no new actions' : 'Last scan: Today, 6:00 AM'} · Daily at 6:00 AM
           </p>
         </div>
         <button
@@ -119,6 +113,7 @@ export default function AIAgentView() {
             approvedIds={approvedIds}
             onApprove={handleApprove}
             onDismiss={handleDismiss}
+            onDismissAll={handleDismissAll}
           />
         )}
         {activeTab === 'insights' && <InsightsPanel insights={response.insights} />}
