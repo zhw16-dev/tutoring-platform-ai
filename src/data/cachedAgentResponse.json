@@ -1,6 +1,4 @@
 {
-  "healthScore": 72,
-  "healthSummary": "Operations are running but need attention in several areas. Sarah Mitchell is managing 27 students — well above sustainable capacity. A cluster of 7 students is showing a sharp attendance decline (87% → 55%), and 3 students have 60%+ unpaid sessions. Caleb Taylor has $600 in pending tutor payouts, and 3 completed sessions are missing payment records entirely.",
   "autonomousActionsCount": 47,
   "actionQueue": [
     {
@@ -8,7 +6,7 @@
       "priority": "critical",
       "category": "Capacity Management",
       "title": "Sarah Mitchell is overloaded — 27 active students",
-      "analysis": "Sarah Mitchell (t1) is currently managing 27 unique students across Mathematics and Physics. The recommended cap is 12–15 students per tutor. At this load, scheduling conflicts are inevitable, session quality risks declining, and burnout becomes a real concern. Other Math tutors — including David Okonkwo, Caleb Taylor, and three newer hires — have capacity to absorb the overflow.",
+      "analysis": "Sarah Mitchell is currently managing 27 unique students across Mathematics and Physics. The recommended cap is 12–15 students per tutor. At this load, scheduling conflicts are inevitable, session quality risks declining, and burnout becomes a real concern. Other Math tutors — including David Okonkwo, Caleb Taylor, and three newer hires — have capacity to absorb the overflow.",
       "recommendedAction": "Redistribute 12–14 Math-only students to other qualified tutors. Keep Sarah's Physics students and her longest-standing Math relationships. Communicate proactively with affected families so the transition feels planned, not disruptive.",
       "draftMessage": {
         "to": "Sarah Mitchell",
@@ -26,7 +24,7 @@
       "priority": "critical",
       "category": "Churn Risk",
       "title": "7 students showing attendance decline — likely churn risk",
-      "analysis": "Gabriella Porter, Ethan Rogers, Skylar Sanders, Lucas Miller, Piper Stewart, Gavin O'Brien, and Cole Morales (all G9) have seen their session completion rate drop from 87% in September–November to 55% in December–February. This is a classic early warning signal for disengagement. In past cohorts, students who hit this pattern without intervention had a 60–70% chance of leaving the program within 6 weeks. These are all Grade 9 students, which suggests this might be a cohort-level issue — possibly related to scheduling, workload adjustment, or simply the novelty wearing off.",
+      "analysis": "Gabriella Porter, Ethan Rogers, Skylar Sanders, Lucas Miller, Piper Stewart, Gavin O'Brien, and Cole Morales (all Grade 9) have seen their session completion rate drop from 87% in September–November to 55% in December–February. This is a classic early warning signal for disengagement. In past cohorts, students who hit this pattern without intervention had a 60–70% chance of leaving the program within 6 weeks. These are all Grade 9 students, which suggests this might be a cohort-level issue — possibly related to scheduling, workload adjustment, or simply the novelty wearing off.",
       "recommendedAction": "Send personalized check-in messages to each parent. Offer schedule adjustments or a free make-up session. Consider grouping some of these students with a high-energy tutor who's good with younger students to re-spark engagement.",
       "draftMessage": {
         "to": "Parent of declining student",
@@ -44,7 +42,7 @@
       "priority": "moderate",
       "category": "Payment Collection",
       "title": "3 students with 60%+ unpaid sessions — $750+ outstanding",
-      "analysis": "Amelia Lee (st27), Charlotte Walker (st28), and Aiden Jenkins (st29) have unpaid rates exceeding 60% of their completed sessions. Combined, this represents approximately $750+ in outstanding revenue. Payment issues left unaddressed beyond 30 days have historically shown significantly lower collection rates. All three are Grade 9 students who joined in the fall.",
+      "analysis": "Amelia Lee, Charlotte Walker, and Aiden Jenkins have unpaid rates exceeding 60% of their completed sessions. Combined, this represents approximately $750+ in outstanding revenue. Payment issues left unaddressed beyond 30 days have historically shown significantly lower collection rates. All three are Grade 9 students who joined in the fall.",
       "recommendedAction": "Send individual payment reminders to parents with specific outstanding amounts. Offer a payment plan option for families where cash flow may be a concern. Flag these accounts for follow-up in 7 days if no response.",
       "draftMessage": {
         "to": "Parent of student with outstanding balance",
@@ -62,7 +60,7 @@
       "priority": "moderate",
       "category": "Tutor Payouts",
       "title": "Caleb Taylor has $600 in pending payouts — 24 sessions",
-      "analysis": "Caleb Taylor (t9) has 24 sessions where the student has already paid but the tutor payout hasn't been processed. At $25 per session, that's $600 owed. This is likely an administrative oversight but it's the kind of thing that erodes tutor trust quickly. Other tutors have occasional pending payouts, but nobody else has a backlog this large.",
+      "analysis": "Caleb Taylor has 24 sessions where the student has already paid but the tutor payout hasn't been processed. At $25 per session, that's $600 owed. This is likely an administrative oversight but it's the kind of thing that erodes tutor trust quickly. Other tutors have occasional pending payouts, but nobody else has a backlog this large.",
       "recommendedAction": "Process all 24 pending payouts for Caleb immediately. Send a brief apology for the delay and confirm the payment has been sent.",
       "draftMessage": {
         "to": "Caleb Taylor",
@@ -98,7 +96,7 @@
       "priority": "moderate",
       "category": "Quality Assurance",
       "title": "Ruby Johnson has elevated no-show rate",
-      "analysis": "Ruby Johnson (t10) has a no-show rate noticeably above the team average. While some no-shows are student-driven, a pattern concentrated around one tutor can sometimes indicate scheduling friction, communication gaps, or student-tutor fit issues. Worth investigating before it becomes a bigger problem.",
+      "analysis": "Ruby Johnson has a no-show rate noticeably above the team average. While some no-shows are student-driven, a pattern concentrated around one tutor can sometimes indicate scheduling friction, communication gaps, or student-tutor fit issues. Worth investigating before it becomes a bigger problem.",
       "recommendedAction": "Have a casual check-in with Ruby to understand if there are any recurring issues. Review whether specific students are driving the no-show pattern.",
       "draftMessage": {
         "to": "Ruby Johnson",
@@ -150,54 +148,239 @@
   ],
   "autonomousLog": [
     {
-      "timestamp": "2025-02-07T11:45:00",
+      "timestamp": "2025-02-07T06:55:00",
       "category": "payment_reconciliation",
       "description": "Reconciled 1,766 payment records against 1,777 sessions. Identified 3 completed sessions with no payment record — flagged for manual review."
     },
     {
-      "timestamp": "2025-02-07T11:40:00",
+      "timestamp": "2025-02-07T06:54:00",
       "category": "payout_processing",
-      "description": "Scanned all tutor payout statuses. Caleb Taylor (t9) has 24 sessions ($600) with student payment received but tutor payout pending. Flagged as critical backlog."
+      "description": "Scanned all tutor payout statuses. Caleb Taylor has 24 sessions ($600) with student payment received but tutor payout pending. Flagged as critical backlog."
     },
     {
-      "timestamp": "2025-02-07T11:35:00",
+      "timestamp": "2025-02-07T06:52:00",
       "category": "capacity_check",
-      "description": "Audited tutor-student assignments. Sarah Mitchell (t1) assigned to 27 unique students — exceeds 15-student recommended cap by 80%. All other tutors within acceptable range."
+      "description": "Audited tutor-student assignments. Sarah Mitchell assigned to 27 unique students — exceeds 15-student recommended cap by 80%. All other tutors within acceptable range."
     },
     {
-      "timestamp": "2025-02-07T11:30:00",
+      "timestamp": "2025-02-07T06:50:00",
       "category": "trend_analysis",
       "description": "Detected attendance decline pattern: 7 Grade 9 students dropped from 87% completion (Sep–Nov) to 55% (Dec–Feb). Flagged as cohort-level churn risk."
     },
     {
-      "timestamp": "2025-02-07T11:25:00",
+      "timestamp": "2025-02-07T06:48:00",
       "category": "schedule_audit",
       "description": "Analyzed session outcomes by time slot. Tuesday 4pm identified as worst-performing slot: 47% cancellation/no-show rate across 30 sessions. Recommend removing from available slots."
     },
     {
-      "timestamp": "2025-02-07T11:20:00",
+      "timestamp": "2025-02-07T06:46:00",
       "category": "trend_analysis",
       "description": "December 2024 sessions dropped 41% vs November (220 vs 370) — consistent with seasonal holiday pattern. January showed strong recovery. No intervention needed."
     },
     {
-      "timestamp": "2025-02-07T11:15:00",
+      "timestamp": "2025-02-07T06:44:00",
       "category": "payment_reconciliation",
-      "description": "Identified 3 students (Amelia Lee, Charlotte Walker, Aiden Jenkins) with 60%+ unpaid session rates. Combined outstanding balance exceeds $750. Flagged for collection outreach."
+      "description": "Identified 3 students with 60%+ unpaid session rates. Combined outstanding balance exceeds $750. Flagged for collection outreach."
     },
     {
-      "timestamp": "2025-02-07T11:10:00",
+      "timestamp": "2025-02-07T06:42:00",
       "category": "data_integrity",
       "description": "Cross-validated all session-payment linkages. 3 orphaned completed sessions detected — payment records missing. Root cause likely manual data entry gap."
     },
     {
-      "timestamp": "2025-02-07T11:05:00",
+      "timestamp": "2025-02-07T06:40:00",
       "category": "capacity_check",
       "description": "Flagged 7 students with no sessions in 2+ months (last activity: November 2024). All Grade 9 — possible cohort-level disengagement. Recommended re-engagement outreach."
     },
     {
-      "timestamp": "2025-02-07T11:00:00",
+      "timestamp": "2025-02-07T06:38:00",
       "category": "trend_analysis",
       "description": "Grade 12 students showing disproportionate increase in Test Prep SAT/ACT and Mathematics bookings since December. Consistent with pre-application exam preparation cycle."
+    },
+    {
+      "timestamp": "2025-02-07T06:34:00",
+      "category": "payment_reconciliation",
+      "description": "Verified all January 2025 payment records. 412 payments processed, 98.3% matched to sessions. 7 payments flagged with minor amount discrepancies ($5–$10 variance)."
+    },
+    {
+      "timestamp": "2025-02-07T06:32:00",
+      "category": "schedule_audit",
+      "description": "Reviewed upcoming week schedule. 142 sessions booked across 23 tutors. No double-bookings detected. 3 tutors have zero sessions — may need schedule review."
+    },
+    {
+      "timestamp": "2025-02-07T06:30:00",
+      "category": "capacity_check",
+      "description": "Scanned tutor availability vs demand. Mathematics has 15% more demand than available slots. Science and English have 20% surplus capacity."
+    },
+    {
+      "timestamp": "2025-02-07T06:28:00",
+      "category": "data_integrity",
+      "description": "Validated student enrollment records. All 200 students have complete profiles. 3 students missing parent email — flagged for admin update."
+    },
+    {
+      "timestamp": "2025-02-07T06:26:00",
+      "category": "trend_analysis",
+      "description": "Computed average session rating by subject. Mathematics: 4.6, Science: 4.5, English: 4.7, Test Prep: 4.4. Test Prep slightly below average — reviewing tutor assignments."
+    },
+    {
+      "timestamp": "2025-02-07T06:24:00",
+      "category": "payout_processing",
+      "description": "Processed routine tutor payouts for completed sessions. 18 tutors paid $4,250 total. 2 tutors with pending payouts carried over from prior week."
+    },
+    {
+      "timestamp": "2025-02-07T06:22:00",
+      "category": "schedule_audit",
+      "description": "Checked for session time conflicts. Found 2 students booked for overlapping times next week — notified admin for resolution."
+    },
+    {
+      "timestamp": "2025-02-07T06:20:00",
+      "category": "payment_reconciliation",
+      "description": "Generated weekly accounts receivable summary. Total outstanding: $3,450 across 47 students. Average days outstanding: 12."
+    },
+    {
+      "timestamp": "2025-02-07T06:18:00",
+      "category": "capacity_check",
+      "description": "Reviewed new student onboarding queue. 4 new students pending tutor assignment. Matched based on subject, availability, and location preferences."
+    },
+    {
+      "timestamp": "2025-02-07T06:16:00",
+      "category": "trend_analysis",
+      "description": "Analyzed cancellation patterns by day of week. Monday and Friday have 2x the cancellation rate of mid-week sessions. Suggest reducing Monday/Friday availability."
+    },
+    {
+      "timestamp": "2025-02-07T06:14:00",
+      "category": "data_integrity",
+      "description": "Ran duplicate detection on student records. No duplicates found. Verified all student-tutor pairings are current and active."
+    },
+    {
+      "timestamp": "2025-02-07T06:00:00",
+      "category": "payout_processing",
+      "description": "Daily scan initiated. Loading data for 200 students, 25 tutors, and 1,777 sessions."
+    },
+    {
+      "timestamp": "2025-02-06T06:55:00",
+      "category": "payment_reconciliation",
+      "description": "Reconciled previous day's payments. 28 new payments received totaling $1,400. All matched to corresponding sessions."
+    },
+    {
+      "timestamp": "2025-02-06T06:50:00",
+      "category": "schedule_audit",
+      "description": "Audited completed sessions from February 5. 34 of 38 scheduled sessions completed. 2 no-shows, 2 cancellations. Completion rate: 89%."
+    },
+    {
+      "timestamp": "2025-02-06T06:45:00",
+      "category": "capacity_check",
+      "description": "Evaluated tutor utilization rates. Average: 72% of available slots filled. Top performer: Sarah Mitchell at 95%. Lowest: 3 newer tutors at 40%."
+    },
+    {
+      "timestamp": "2025-02-06T06:40:00",
+      "category": "trend_analysis",
+      "description": "Week-over-week session volume: +8% vs prior week. February trending 12% above January. Consistent with post-holiday recovery pattern."
+    },
+    {
+      "timestamp": "2025-02-06T06:35:00",
+      "category": "data_integrity",
+      "description": "Verified tutor credential records. All 25 tutors have valid background checks on file. 2 tutors approaching annual renewal deadline (March 2025)."
+    },
+    {
+      "timestamp": "2025-02-06T06:30:00",
+      "category": "payout_processing",
+      "description": "Checked pending tutor payouts. Total pending across all tutors: $1,850. Caleb Taylor accounts for 32% of total pending."
+    },
+    {
+      "timestamp": "2025-02-06T06:25:00",
+      "category": "schedule_audit",
+      "description": "Reviewed session distribution by time of day. Peak hours: 4–6 PM (62% of sessions). 8–10 AM slots severely underutilized at 12%."
+    },
+    {
+      "timestamp": "2025-02-06T06:20:00",
+      "category": "payment_reconciliation",
+      "description": "Flagged 5 students approaching 30-day payment threshold. Automated reminder emails queued for parents."
+    },
+    {
+      "timestamp": "2025-02-06T06:15:00",
+      "category": "capacity_check",
+      "description": "Grade 12 demand analysis: 35% increase in session bookings vs December. Current tutor capacity sufficient through March. May need additional Test Prep tutors for April."
+    },
+    {
+      "timestamp": "2025-02-06T06:10:00",
+      "category": "trend_analysis",
+      "description": "Student satisfaction survey results processed. Overall score: 4.5/5.0. Top feedback theme: flexibility of scheduling. Lowest theme: session reminders arriving too late."
+    },
+    {
+      "timestamp": "2025-02-06T06:05:00",
+      "category": "data_integrity",
+      "description": "Backup validation complete. All database tables consistent. Session-payment foreign key integrity: 99.8% (3 orphaned records previously flagged)."
+    },
+    {
+      "timestamp": "2025-02-06T06:00:00",
+      "category": "payout_processing",
+      "description": "Daily scan initiated. Loading data for 200 students, 25 tutors, and 1,770 sessions."
+    },
+    {
+      "timestamp": "2025-02-05T06:55:00",
+      "category": "payment_reconciliation",
+      "description": "End-of-day reconciliation. 22 payments received ($1,100). 3 bounced payments detected — flagged for follow-up with parents."
+    },
+    {
+      "timestamp": "2025-02-05T06:50:00",
+      "category": "schedule_audit",
+      "description": "Reviewed next 7-day forecast. 156 sessions scheduled. Identified potential weather cancellation risk for Thursday (winter storm warning)."
+    },
+    {
+      "timestamp": "2025-02-05T06:45:00",
+      "category": "capacity_check",
+      "description": "New tutor application review. 2 applications received for Mathematics. Forwarded to admin with availability match analysis."
+    },
+    {
+      "timestamp": "2025-02-05T06:40:00",
+      "category": "trend_analysis",
+      "description": "Monthly retention analysis: January retention rate 94.5%. Slight decline from December (96.2%). Grade 9 cohort driving the dip — consistent with attendance pattern flagged earlier."
+    },
+    {
+      "timestamp": "2025-02-05T06:35:00",
+      "category": "data_integrity",
+      "description": "Audited Calendly integration sync. All 25 tutor calendars synced within last 24 hours. No sync failures detected."
+    },
+    {
+      "timestamp": "2025-02-05T06:30:00",
+      "category": "payout_processing",
+      "description": "Processed bi-weekly tutor payouts. 15 tutors received payouts totaling $3,750. Average payout: $250 per tutor."
+    },
+    {
+      "timestamp": "2025-02-05T06:25:00",
+      "category": "schedule_audit",
+      "description": "Identified 3 students with perfect attendance (100% completion rate) over last 3 months. Recommended for recognition or loyalty discount."
+    },
+    {
+      "timestamp": "2025-02-05T06:20:00",
+      "category": "payment_reconciliation",
+      "description": "Generated monthly invoice batch for January. 187 invoices created. Total billed: $9,350. Average invoice: $50."
+    },
+    {
+      "timestamp": "2025-02-05T06:15:00",
+      "category": "capacity_check",
+      "description": "Subject demand forecast for March: Mathematics +10%, Test Prep +25%, Science flat, English -5%. Recommend shifting English tutor hours to Test Prep."
+    },
+    {
+      "timestamp": "2025-02-05T06:10:00",
+      "category": "trend_analysis",
+      "description": "Analyzed parent engagement metrics. 78% of parents opened last email communication. 45% clicked through to session reports. Above industry average."
+    },
+    {
+      "timestamp": "2025-02-05T06:05:00",
+      "category": "data_integrity",
+      "description": "Checked for stale tutor profiles. 2 tutors haven't updated availability in 30+ days. Sent automated reminder to update their schedules."
+    },
+    {
+      "timestamp": "2025-02-05T06:00:00",
+      "category": "payout_processing",
+      "description": "Daily scan initiated. Loading data for 200 students, 25 tutors, and 1,762 sessions."
+    },
+    {
+      "timestamp": "2025-02-04T06:50:00",
+      "category": "payment_reconciliation",
+      "description": "Weekly payment summary: $6,800 collected from students. Collection rate: 91%. Slight improvement over prior week (89%)."
     }
   ],
   "insights": [
@@ -211,7 +394,7 @@
     },
     {
       "title": "Tutor Rating Signal",
-      "body": "Nolan Burns (t17) has a 4.1 rating — noticeably below the 4.5+ average across all other tutors. While this could reflect a smaller sample size or tougher grading from a few students, it's worth a casual check-in to understand the context. If there are specific improvement areas, coaching now prevents larger issues later."
+      "body": "Nolan Burns has a 4.1 rating — noticeably below the 4.5+ average across all other tutors. While this could reflect a smaller sample size or tougher grading from a few students, it's worth a casual check-in to understand the context. If there are specific improvement areas, coaching now prevents larger issues later."
     }
   ]
 }

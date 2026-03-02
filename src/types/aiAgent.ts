@@ -1,6 +1,4 @@
 export interface AgentResponse {
-  healthScore: number
-  healthSummary: string
   autonomousActionsCount: number
   actionQueue: ActionItem[]
   autonomousLog: LogEntry[]

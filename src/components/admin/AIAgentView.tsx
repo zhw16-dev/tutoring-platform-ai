@@ -12,21 +12,41 @@ import AutonomousLog from './agent/AutonomousLog'
 import InsightsPanel from './agent/InsightsPanel'
 import AgentLoading from './agent/AgentLoading'
 
+type AgentTab = 'action-queue' | 'insights' | 'autonomous-log'
+
 export default function AIAgentView() {
   const { state } = useApp()
   const { showToast } = useToast()
   const [response, setResponse] = useState<AgentResponse>(cachedResponse as AgentResponse)
   const [loading, setLoading] = useState(false)
   const [isLive, setIsLive] = useState(false)
+  const [activeTab, setActiveTab] = useState<AgentTab>('action-queue')
+  const [dismissedIds, setDismissedIds] = useState<Set<string>>(new Set())
+  const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set())
 
-  const pendingReviewCount = response.actionQueue.length
-  const criticalAlertCount = response.actionQueue.filter(a => a.priority === 'critical').length
+  const visibleActions = response.actionQueue.filter(
+    a => !dismissedIds.has(a.id) && !approvedIds.has(a.id)
+  )
+  const pendingReviewCount = visibleActions.length
+  const criticalAlertCount = visibleActions.filter(a => a.priority === 'critical').length
+
+  function handleApprove(id: string) {
+    setApprovedIds(prev => new Set(prev).add(id))
+    showToast('Action approved — message queued', 'success')
+  }
+
+  function handleDismiss(id: string) {
+    setDismissedIds(prev => new Set(prev).add(id))
+    showToast('Dismissed', 'info')
+  }
 
   async function handleReanalyze() {
     setLoading(true)
     try {
       const result = await runAgentAnalysis(state)
       setResponse(result)
+      setDismissedIds(new Set())
+      setApprovedIds(new Set())
       setIsLive(true)
       showToast('Live analysis complete', 'success')
     } catch {
@@ -41,6 +61,12 @@ export default function AIAgentView() {
     return <AgentLoading />
   }
 
+  const subTabs: { key: AgentTab; label: string }[] = [
+    { key: 'action-queue', label: 'Action Queue' },
+    { key: 'insights', label: 'Insights' },
+    { key: 'autonomous-log', label: 'Autonomous Log' },
+  ]
+
   return (
     <div className="space-y-8">
       {/* Header */}
@@ -48,7 +74,7 @@ export default function AIAgentView() {
         <div>
           <h1 className="text-2xl font-semibold text-[var(--color-text-primary)]">AI Operations Agent</h1>
           <p className="text-sm text-[var(--color-text-secondary)] mt-1">
-            {isLive ? 'Live analysis' : 'Cached analysis'} · Feb 7, 2025
+            {isLive ? 'Live analysis' : 'Last scan: Today, 6:00 AM'} · Daily at 6:00 AM
           </p>
         </div>
         <button
@@ -60,23 +86,44 @@ export default function AIAgentView() {
         </button>
       </div>
 
-      {/* Summary */}
+      {/* Agent summary (Critical Alerts, Active Issues, Autonomous Actions) */}
       <AgentSummaryBar
-        healthScore={response.healthScore}
-        healthSummary={response.healthSummary}
         autonomousActionsCount={response.autonomousActionsCount}
         pendingReviewCount={pendingReviewCount}
         criticalAlertCount={criticalAlertCount}
       />
 
-      {/* Action Queue */}
-      <ActionQueue actions={response.actionQueue} />
+      {/* Sub-tabs */}
+      <div className="flex gap-0 border-b border-[var(--color-border)]">
+        {subTabs.map(tab => (
+          <button
+            key={tab.key}
+            onClick={() => setActiveTab(tab.key)}
+            className={`pb-3 px-1 mr-6 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
+              activeTab === tab.key
+                ? 'text-[var(--color-accent)] border-[var(--color-accent)]'
+                : 'text-[var(--color-text-secondary)] border-transparent hover:text-[var(--color-text-primary)]'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-      {/* Autonomous Log */}
-      <AutonomousLog entries={response.autonomousLog} />
-
-      {/* Insights */}
-      <InsightsPanel insights={response.insights} />
+      {/* Tab content */}
+      <div>
+        {activeTab === 'action-queue' && (
+          <ActionQueue
+            actions={response.actionQueue}
+            dismissedIds={dismissedIds}
+            approvedIds={approvedIds}
+            onApprove={handleApprove}
+            onDismiss={handleDismiss}
+          />
+        )}
+        {activeTab === 'insights' && <InsightsPanel insights={response.insights} />}
+        {activeTab === 'autonomous-log' && <AutonomousLog entries={response.autonomousLog} />}
+      </div>
     </div>
   )
 }

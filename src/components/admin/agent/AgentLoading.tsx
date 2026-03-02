@@ -12,7 +12,7 @@ export default function AgentLoading() {
         Agent analyzing business operations...
       </p>
       <p className="text-xs text-[var(--color-text-tertiary)] mt-1">
-        Processing 200 students · 25 tutors · 2,000 sessions
+        Processing 200 students · 25 tutors · 1,777 sessions
       </p>
     </div>
   )

@@ -16,9 +16,13 @@ const CATEGORY_EMOJI: Record<string, string> = {
   payout_processing: '💳',
 }
 
-function formatLogTime(iso: string): string {
+function formatLogDate(iso: string): string {
   const d = new Date(iso)
-  return d.toLocaleTimeString('en-CA', { hour: 'numeric', minute: '2-digit', hour12: true })
+  return d.toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })
+}
+
+function getDateKey(iso: string): string {
+  return iso.split('T')[0]
 }
 
 export default function AutonomousLog({ entries }: AutonomousLogProps) {
@@ -27,30 +31,48 @@ export default function AutonomousLog({ entries }: AutonomousLogProps) {
   const sorted = [...entries].sort(
     (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
   )
-  const visible = showAll ? sorted : sorted.slice(0, 5)
+  const visible = showAll ? sorted : sorted.slice(0, 10)
+
+  // Group by date
+  const grouped: { date: string; label: string; entries: LogEntry[] }[] = []
+  for (const entry of visible) {
+    const key = getDateKey(entry.timestamp)
+    const last = grouped[grouped.length - 1]
+    if (last && last.date === key) {
+      last.entries.push(entry)
+    } else {
+      grouped.push({ date: key, label: formatLogDate(entry.timestamp), entries: [entry] })
+    }
+  }
 
   return (
     <div>
       <h2 className="text-lg font-semibold text-[var(--color-text-primary)] mb-4">Autonomous Log</h2>
 
-      <div className="bg-white rounded-lg border border-[var(--color-border)] overflow-hidden">
-        {visible.map((entry, i) => (
-          <div
-            key={`${entry.timestamp}-${i}`}
-            className={`flex items-start gap-3 px-5 py-3 text-sm ${
-              i % 2 === 0 ? 'bg-white' : 'bg-[var(--color-bg)]'
-            } ${i > 0 ? 'border-t border-[var(--color-border)]' : ''}`}
-          >
-            <span className="shrink-0">{CATEGORY_EMOJI[entry.category] ?? '📋'}</span>
-            <span className="shrink-0 text-xs text-[var(--color-text-tertiary)] mt-0.5 w-20">
-              {formatLogTime(entry.timestamp)}
-            </span>
-            <p className="text-[var(--color-text-primary)] leading-relaxed">{entry.description}</p>
+      <div className="space-y-4">
+        {grouped.map(group => (
+          <div key={group.date}>
+            <p className="text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wide mb-2">
+              {group.label}
+            </p>
+            <div className="bg-white rounded-lg border border-[var(--color-border)] overflow-hidden">
+              {group.entries.map((entry, i) => (
+                <div
+                  key={`${entry.timestamp}-${i}`}
+                  className={`flex items-start gap-3 px-5 py-3 text-sm ${
+                    i % 2 === 0 ? 'bg-white' : 'bg-[var(--color-bg)]'
+                  } ${i > 0 ? 'border-t border-[var(--color-border)]' : ''}`}
+                >
+                  <span className="shrink-0">{CATEGORY_EMOJI[entry.category] ?? '📋'}</span>
+                  <p className="text-[var(--color-text-primary)] leading-relaxed">{entry.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
 
-      {sorted.length > 5 && (
+      {sorted.length > 10 && (
         <button
           onClick={() => setShowAll(!showAll)}
           className="mt-3 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"

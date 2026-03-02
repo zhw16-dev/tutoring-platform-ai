@@ -1,12 +1,14 @@
 'use client'
 
-import { useState } from 'react'
 import { ActionItem } from '@/types/aiAgent'
-import { useToast } from '@/components/shared/Toast'
 import ActionCard from './ActionCard'
 
 interface ActionQueueProps {
   actions: ActionItem[]
+  dismissedIds: Set<string>
+  approvedIds: Set<string>
+  onApprove: (id: string) => void
+  onDismiss: (id: string) => void
 }
 
 const PRIORITY_ORDER: Record<string, number> = {
@@ -15,24 +17,10 @@ const PRIORITY_ORDER: Record<string, number> = {
   info: 2,
 }
 
-export default function ActionQueue({ actions }: ActionQueueProps) {
-  const [dismissedIds, setDismissedIds] = useState<Set<string>>(new Set())
-  const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set())
-  const { showToast } = useToast()
-
+export default function ActionQueue({ actions, dismissedIds, approvedIds, onApprove, onDismiss }: ActionQueueProps) {
   const visibleActions = actions
     .filter(a => !dismissedIds.has(a.id) && !approvedIds.has(a.id))
     .sort((a, b) => (PRIORITY_ORDER[a.priority] ?? 2) - (PRIORITY_ORDER[b.priority] ?? 2))
-
-  function handleApprove(id: string) {
-    setApprovedIds(prev => new Set(prev).add(id))
-    showToast('Action approved — message queued', 'success')
-  }
-
-  function handleDismiss(id: string) {
-    setDismissedIds(prev => new Set(prev).add(id))
-    showToast('Dismissed', 'info')
-  }
 
   return (
     <div>
@@ -55,8 +43,8 @@ export default function ActionQueue({ actions }: ActionQueueProps) {
             <ActionCard
               key={action.id}
               action={action}
-              onApprove={handleApprove}
-              onDismiss={handleDismiss}
+              onApprove={onApprove}
+              onDismiss={onDismiss}
             />
           ))}
         </div>

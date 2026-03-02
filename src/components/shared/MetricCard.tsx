@@ -3,16 +3,18 @@
 interface MetricCardProps {
   label: string
   value: string | number
-  accent?: 'default' | 'warning' | 'success'
+  accent?: 'default' | 'warning' | 'success' | 'error'
 }
 
 export default function MetricCard({ label, value, accent = 'default' }: MetricCardProps) {
   const valueColor =
-    accent === 'warning'
-      ? 'text-[var(--color-warning)]'
-      : accent === 'success'
-        ? 'text-[var(--color-success)]'
-        : 'text-[var(--color-text-primary)]'
+    accent === 'error'
+      ? 'text-[var(--color-error)]'
+      : accent === 'warning'
+        ? 'text-[var(--color-warning)]'
+        : accent === 'success'
+          ? 'text-[var(--color-success)]'
+          : 'text-[var(--color-text-primary)]'
 
   return (
     <div className="bg-white rounded-lg border border-[var(--color-border)] p-6">
