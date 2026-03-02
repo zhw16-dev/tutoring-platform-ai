@@ -14,6 +14,7 @@ import AdminOverview from '@/components/admin/AdminOverview'
 import AdminSessions from '@/components/admin/AdminSessions'
 import AdminFinancials from '@/components/admin/AdminFinancials'
 import AdminUsers from '@/components/admin/AdminUsers'
+import AIAgentView from '@/components/admin/AIAgentView'
 
 const TABS: Record<string, { key: string; label: string }[]> = {
   student: [
@@ -27,6 +28,7 @@ const TABS: Record<string, { key: string; label: string }[]> = {
     { key: 'profile', label: 'Profile' },
   ],
   admin: [
+    { key: 'ai-agent', label: 'AI Agent' },
     { key: 'overview', label: 'Overview' },
     { key: 'sessions', label: 'Sessions' },
     { key: 'financials', label: 'Financials' },
@@ -79,6 +81,7 @@ export default function DashboardPage() {
         break
       case 'admin':
         switch (activeTab) {
+          case 'ai-agent': return <AIAgentView />
           case 'overview': return <AdminOverview />
           case 'sessions': return <AdminSessions />
           case 'financials': return <AdminFinancials />

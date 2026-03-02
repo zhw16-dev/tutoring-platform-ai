@@ -1,0 +1,217 @@
+{
+  "healthScore": 72,
+  "healthSummary": "Operations are running but need attention in several areas. Sarah Mitchell is managing 27 students — well above sustainable capacity. A cluster of 7 students is showing a sharp attendance decline (87% → 55%), and 3 students have 60%+ unpaid sessions. Caleb Taylor has $600 in pending tutor payouts, and 3 completed sessions are missing payment records entirely.",
+  "autonomousActionsCount": 47,
+  "actionQueue": [
+    {
+      "id": "action-1",
+      "priority": "critical",
+      "category": "Capacity Management",
+      "title": "Sarah Mitchell is overloaded — 27 active students",
+      "analysis": "Sarah Mitchell (t1) is currently managing 27 unique students across Mathematics and Physics. The recommended cap is 12–15 students per tutor. At this load, scheduling conflicts are inevitable, session quality risks declining, and burnout becomes a real concern. Other Math tutors — including David Okonkwo, Caleb Taylor, and three newer hires — have capacity to absorb the overflow.",
+      "recommendedAction": "Redistribute 12–14 Math-only students to other qualified tutors. Keep Sarah's Physics students and her longest-standing Math relationships. Communicate proactively with affected families so the transition feels planned, not disruptive.",
+      "draftMessage": {
+        "to": "Sarah Mitchell",
+        "toRole": "tutor",
+        "subject": "Adjusting your student load",
+        "body": "Hi Sarah,\n\nI've been looking at the numbers and your student list has grown to 27 — that's way more than anyone should be handling. You've been incredible, but I want to make sure you're not stretched too thin and that every student is getting the attention they deserve.\n\nHere's what I'm thinking: I'll move some of your Math-only students to David, Caleb, and a couple of the newer tutors who have capacity. You'll keep all your Physics students and the Math students you've been working with the longest.\n\nI'll handle all the parent communication so it's seamless. You won't need to do anything — I just wanted to give you a heads up first.\n\nThanks for being such a reliable part of the team. This is about protecting your energy, not a reflection of anything you're doing wrong.\n\nWill"
+      },
+      "affectedEntities": {
+        "studentIds": ["st1", "st5", "st9", "st12"],
+        "tutorIds": ["t1", "t6", "t9", "t13"]
+      }
+    },
+    {
+      "id": "action-2",
+      "priority": "critical",
+      "category": "Churn Risk",
+      "title": "7 students showing attendance decline — likely churn risk",
+      "analysis": "Gabriella Porter, Ethan Rogers, Skylar Sanders, Lucas Miller, Piper Stewart, Gavin O'Brien, and Cole Morales (all G9) have seen their session completion rate drop from 87% in September–November to 55% in December–February. This is a classic early warning signal for disengagement. In past cohorts, students who hit this pattern without intervention had a 60–70% chance of leaving the program within 6 weeks. These are all Grade 9 students, which suggests this might be a cohort-level issue — possibly related to scheduling, workload adjustment, or simply the novelty wearing off.",
+      "recommendedAction": "Send personalized check-in messages to each parent. Offer schedule adjustments or a free make-up session. Consider grouping some of these students with a high-energy tutor who's good with younger students to re-spark engagement.",
+      "draftMessage": {
+        "to": "Parent of declining student",
+        "toRole": "parent",
+        "subject": "Quick check-in about tutoring",
+        "body": "Hi there,\n\nI wanted to reach out because I've noticed your child has missed a few recent sessions. Totally understand that schedules get busy — just wanted to check in and make sure everything is going okay.\n\nIf the current time slot isn't working anymore, we can absolutely adjust. Sometimes even a small change makes a big difference. I can also offer a free make-up session to help get back on track.\n\nLet me know what works best for your family — happy to find a solution that fits.\n\nBest,\nWill"
+      },
+      "affectedEntities": {
+        "studentIds": ["st13", "st14", "st15", "st16", "st17", "st18", "st19"],
+        "tutorIds": []
+      }
+    },
+    {
+      "id": "action-3",
+      "priority": "moderate",
+      "category": "Payment Collection",
+      "title": "3 students with 60%+ unpaid sessions — $750+ outstanding",
+      "analysis": "Amelia Lee (st27), Charlotte Walker (st28), and Aiden Jenkins (st29) have unpaid rates exceeding 60% of their completed sessions. Combined, this represents approximately $750+ in outstanding revenue. Payment issues left unaddressed beyond 30 days have historically shown significantly lower collection rates. All three are Grade 9 students who joined in the fall.",
+      "recommendedAction": "Send individual payment reminders to parents with specific outstanding amounts. Offer a payment plan option for families where cash flow may be a concern. Flag these accounts for follow-up in 7 days if no response.",
+      "draftMessage": {
+        "to": "Parent of student with outstanding balance",
+        "toRole": "parent",
+        "subject": "Quick note about tutoring payments",
+        "body": "Hi,\n\nHope you're doing well! I'm reaching out about a few outstanding tutoring session payments. I know things can easily slip through the cracks with everything going on.\n\nI'd be happy to send you a detailed breakdown of the sessions if that's helpful. And if cash flow is tight right now, we can absolutely work out a payment schedule — no stress at all. The priority is keeping your child's learning on track.\n\nJust let me know and we'll get it sorted out.\n\nBest,\nWill"
+      },
+      "affectedEntities": {
+        "studentIds": ["st27", "st28", "st29"],
+        "tutorIds": []
+      }
+    },
+    {
+      "id": "action-4",
+      "priority": "moderate",
+      "category": "Tutor Payouts",
+      "title": "Caleb Taylor has $600 in pending payouts — 24 sessions",
+      "analysis": "Caleb Taylor (t9) has 24 sessions where the student has already paid but the tutor payout hasn't been processed. At $25 per session, that's $600 owed. This is likely an administrative oversight but it's the kind of thing that erodes tutor trust quickly. Other tutors have occasional pending payouts, but nobody else has a backlog this large.",
+      "recommendedAction": "Process all 24 pending payouts for Caleb immediately. Send a brief apology for the delay and confirm the payment has been sent.",
+      "draftMessage": {
+        "to": "Caleb Taylor",
+        "toRole": "tutor",
+        "subject": "Your pending payouts — processed",
+        "body": "Hey Caleb,\n\nI owe you an apology — I just realized you had 24 sessions worth of payouts that hadn't been processed yet. That's completely on me and it shouldn't have taken this long.\n\nI've processed all of them now — you should see $600 coming through. Going forward, I'm putting a system in place to make sure this doesn't happen again.\n\nReally sorry about the delay, and thanks for your patience.\n\nWill"
+      },
+      "affectedEntities": {
+        "studentIds": [],
+        "tutorIds": ["t9"]
+      }
+    },
+    {
+      "id": "action-5",
+      "priority": "moderate",
+      "category": "Re-engagement",
+      "title": "7 inactive students — no sessions in 2+ months",
+      "analysis": "Aiden Hill, Camila Sanders, Lily Wright, Emma Tremblay, Penelope Santos, Miles Dubois, and Layla O'Brien haven't had a single session since November 2024. These are all Grade 9 students who were active in the first few months but have gone completely silent. Without outreach, these students are effectively churned.",
+      "recommendedAction": "Send a warm re-engagement message to parents. Offer a free 'welcome back' session and flexible scheduling. If no response within 10 days, mark as inactive in the system.",
+      "draftMessage": {
+        "to": "Parent of inactive student",
+        "toRole": "parent",
+        "subject": "We miss having your child in sessions!",
+        "body": "Hi,\n\nIt's been a little while since your child's last tutoring session, and I just wanted to check in. I hope everything is going well!\n\nIf they'd like to jump back in, I'd love to offer a free session to get started again — no obligation. We can also try a different tutor or subject if that would be a better fit.\n\nSometimes a fresh start is all it takes. Let me know if you'd like to chat about options.\n\nBest,\nWill"
+      },
+      "affectedEntities": {
+        "studentIds": ["st20", "st21", "st22", "st23", "st24", "st25", "st26"],
+        "tutorIds": []
+      }
+    },
+    {
+      "id": "action-6",
+      "priority": "moderate",
+      "category": "Quality Assurance",
+      "title": "Ruby Johnson has elevated no-show rate",
+      "analysis": "Ruby Johnson (t10) has a no-show rate noticeably above the team average. While some no-shows are student-driven, a pattern concentrated around one tutor can sometimes indicate scheduling friction, communication gaps, or student-tutor fit issues. Worth investigating before it becomes a bigger problem.",
+      "recommendedAction": "Have a casual check-in with Ruby to understand if there are any recurring issues. Review whether specific students are driving the no-show pattern.",
+      "draftMessage": {
+        "to": "Ruby Johnson",
+        "toRole": "tutor",
+        "subject": "Quick check-in",
+        "body": "Hi Ruby,\n\nJust wanted to touch base — I've been reviewing session data and noticed you've had a few more no-shows than usual lately. Totally not pointing fingers — I know sometimes it's just bad luck with scheduling.\n\nBut I wanted to check in and see if there's anything on your end that might be contributing, or if there's anything I can do to help. Maybe we can look at the specific students involved and see if there's a pattern.\n\nLet me know when you have a minute to chat.\n\nWill"
+      },
+      "affectedEntities": {
+        "studentIds": [],
+        "tutorIds": ["t10"]
+      }
+    },
+    {
+      "id": "action-7",
+      "priority": "info",
+      "category": "Data Integrity",
+      "title": "3 completed sessions missing payment records",
+      "analysis": "Found 3 completed sessions that have no corresponding payment entry in the system. This is a data integrity issue — every completed session should generate a payment record, even if it's unpaid. These gaps can compound over time and create reconciliation headaches. The missing records need to be created and the root cause identified.",
+      "recommendedAction": "Create payment records for the 3 orphaned sessions. Investigate whether this was a manual entry error or a system gap that needs a fix.",
+      "draftMessage": {
+        "to": "Will (self-note)",
+        "toRole": "parent",
+        "subject": "Data cleanup needed — 3 missing payment records",
+        "body": "Note to self: 3 completed sessions were found without matching payment records. Need to:\n\n1. Create payment entries for these sessions\n2. Determine if students were actually billed\n3. Check if this is a one-time data entry error or a recurring system issue\n4. Add a validation check to prevent this going forward"
+      },
+      "affectedEntities": {
+        "studentIds": [],
+        "tutorIds": []
+      }
+    },
+    {
+      "id": "action-8",
+      "priority": "info",
+      "category": "Scheduling",
+      "title": "Tuesday 4pm has 47% cancellation/no-show rate",
+      "analysis": "Sessions scheduled for Tuesday at 4:00 PM have a 47% cancellation or no-show rate across all tutors — 14 out of 30 sessions. This is dramatically higher than any other time slot. It's likely that this time conflicts with a common extracurricular activity (sports practice, music lessons, etc.) for many students. Continuing to book this slot is essentially wasting capacity.",
+      "recommendedAction": "Stop offering Tuesday 4pm as an available slot for new bookings. Reach out to students currently booked at this time to offer alternatives. Consider shifting to Tuesday 5pm or Wednesday 4pm.",
+      "draftMessage": {
+        "to": "All tutors",
+        "toRole": "tutor",
+        "subject": "Heads up — removing Tuesday 4pm slot",
+        "body": "Hey team,\n\nQuick scheduling update: I'm removing the Tuesday 4pm time slot going forward. The data shows it has a really high cancellation rate — likely conflicting with after-school activities for a lot of students.\n\nIf you have students currently booked at that time, I'll be reaching out to them to find a better slot. No action needed on your end.\n\nThanks!\nWill"
+      },
+      "affectedEntities": {
+        "studentIds": [],
+        "tutorIds": []
+      }
+    }
+  ],
+  "autonomousLog": [
+    {
+      "timestamp": "2025-02-07T11:45:00",
+      "category": "payment_reconciliation",
+      "description": "Reconciled 1,766 payment records against 1,777 sessions. Identified 3 completed sessions with no payment record — flagged for manual review."
+    },
+    {
+      "timestamp": "2025-02-07T11:40:00",
+      "category": "payout_processing",
+      "description": "Scanned all tutor payout statuses. Caleb Taylor (t9) has 24 sessions ($600) with student payment received but tutor payout pending. Flagged as critical backlog."
+    },
+    {
+      "timestamp": "2025-02-07T11:35:00",
+      "category": "capacity_check",
+      "description": "Audited tutor-student assignments. Sarah Mitchell (t1) assigned to 27 unique students — exceeds 15-student recommended cap by 80%. All other tutors within acceptable range."
+    },
+    {
+      "timestamp": "2025-02-07T11:30:00",
+      "category": "trend_analysis",
+      "description": "Detected attendance decline pattern: 7 Grade 9 students dropped from 87% completion (Sep–Nov) to 55% (Dec–Feb). Flagged as cohort-level churn risk."
+    },
+    {
+      "timestamp": "2025-02-07T11:25:00",
+      "category": "schedule_audit",
+      "description": "Analyzed session outcomes by time slot. Tuesday 4pm identified as worst-performing slot: 47% cancellation/no-show rate across 30 sessions. Recommend removing from available slots."
+    },
+    {
+      "timestamp": "2025-02-07T11:20:00",
+      "category": "trend_analysis",
+      "description": "December 2024 sessions dropped 41% vs November (220 vs 370) — consistent with seasonal holiday pattern. January showed strong recovery. No intervention needed."
+    },
+    {
+      "timestamp": "2025-02-07T11:15:00",
+      "category": "payment_reconciliation",
+      "description": "Identified 3 students (Amelia Lee, Charlotte Walker, Aiden Jenkins) with 60%+ unpaid session rates. Combined outstanding balance exceeds $750. Flagged for collection outreach."
+    },
+    {
+      "timestamp": "2025-02-07T11:10:00",
+      "category": "data_integrity",
+      "description": "Cross-validated all session-payment linkages. 3 orphaned completed sessions detected — payment records missing. Root cause likely manual data entry gap."
+    },
+    {
+      "timestamp": "2025-02-07T11:05:00",
+      "category": "capacity_check",
+      "description": "Flagged 7 students with no sessions in 2+ months (last activity: November 2024). All Grade 9 — possible cohort-level disengagement. Recommended re-engagement outreach."
+    },
+    {
+      "timestamp": "2025-02-07T11:00:00",
+      "category": "trend_analysis",
+      "description": "Grade 12 students showing disproportionate increase in Test Prep SAT/ACT and Mathematics bookings since December. Consistent with pre-application exam preparation cycle."
+    }
+  ],
+  "insights": [
+    {
+      "title": "Grade 12 Test Prep Surge",
+      "body": "Grade 12 students have significantly increased their Test Prep and Mathematics bookings since December, driven by upcoming SAT/ACT deadlines and university application timelines. This is a natural seasonal pattern, but there's an opportunity to capture more of this demand by adding dedicated test prep availability through April. Consider reaching out to Grade 11 students as well — early preparation correlates with higher score improvements."
+    },
+    {
+      "title": "Grade 9 Cohort Needs Attention",
+      "body": "Multiple signals point to challenges with the Grade 9 cohort specifically: the attendance decline cluster, the inactive students, and the chronic late payers are all Grade 9. This suggests a systemic issue rather than individual problems — possibly related to parent engagement expectations, session format preferences, or the transition from middle school. A targeted Grade 9 parent check-in campaign could address multiple issues simultaneously."
+    },
+    {
+      "title": "Tutor Rating Signal",
+      "body": "Nolan Burns (t17) has a 4.1 rating — noticeably below the 4.5+ average across all other tutors. While this could reflect a smaller sample size or tougher grading from a few students, it's worth a casual check-in to understand the context. If there are specific improvement areas, coaching now prevents larger issues later."
+    }
+  ]
+}

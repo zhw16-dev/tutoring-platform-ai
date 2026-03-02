@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next build)",
+      "Bash(timeout 20 npx next dev --port 3004)"
+    ]
+  }
+}
